@@ -1,0 +1,117 @@
+<html>
+
+<head>
+
+<title> Document</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<h1 Class="Kec"> kongu Engineering College</h1>
+
+<p class="second-header"> CGPA Calculator </p>
+
+<select id = "SemesterSelect" onchange="showsemester()">
+
+<option>Select Semester</option>
+
+<option value = "Sem1"> Semester 1 </option> 
+<option value = "Sem2"> Semester 2 <option>
+
+</select>
+
+<div id="table-Container"> </div>
+
+<button onclick="calculateCGPA()">
+
+Get CGPA </button>
+
+<div id="cgpa"> </div>
+
+<Script>
+ function calculateCGPA()
+{
+    let sum=0;
+
+    let Count=0;
+
+    let hasU=false;
+
+    for(let i=1 ; i<=n ; i++)
+
+    { 
+        const SelectElement = document.getElementById('grade-${i}');
+
+        if (SelectElement){
+
+        const mark= parseFloat (SelectElement.value)
+
+        if (!isNaN (mark) && mark !== 0)
+        {
+          sum += mark;
+          Count++;
+        }
+    }
+    if (hasU)
+    {
+    document.getElementById('cgpa').innerHTML = "Arrear";
+    } 
+    else
+    {
+     if (count > 0)
+    {
+    const average = sum/Count;
+
+    document.getElementById('cgpa').innerHTML = "CGPA.!" + average + toFixed(2);
+    }
+}
+    }
+}
+ function showsemester()
+{
+     var Semester = document.getElementById ("SemesterSelect").value;
+    if (Semester == "Sem1")
+    {
+    const data = [
+
+{Course : 'CSI', Coursecode : "22EGTII",
+
+Credits: 3, index:1},
+
+{Course: 'Program in C', Coursecode: "220cse",
+
+Credits : 4, index: 2}
+
+];
+
+const tableContainer=document.getElementById('tabel-Container');
+
+tabelContainer.innerHTML=generatetable(data);
+    }
+}
+
+function generatetable (data)
+
+{
+     let table = '<table>';
+
+    table += "<tr><th> Course </th><th> CourseCode </th><th>Credits</th><th> Grade </th></tr>";
+    data.forEach(item =>
+
+    {
+        table += '<tr><td>${item. Course }</td><td>$& item Course Code }</td><td>$item credits } </td><td><select id = "grade-${item-index}"><option value="grade">Select Grade </option><option value="10">0</option><option value="9"> A+</option><option value="8">A</option><option value=""> B+ </option><option value="6"> B </option><option value="0">U</option></select> </td> </tr>';
+    
+    });
+    
+    table += '</table>';
+    
+    return table;
+    }
+</script>
+
+</body>
+
+</html>
